@@ -57,17 +57,16 @@ function draw(e) {
   [lastX, lastY] = [e.offsetX, e.offsetY];
 }
 
-canvas.addEventListener('mousedown', (e) => {
-  isDrawing = true;
-  [lastX, lastY] = [e.offsetX, e.offsetY];
-  console.log(activeColor);
-});
-
 function downloadSVG() {
   const data = canvas.toDataURL('image/jpeg');
   $('#download').href = data;
 }
 
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+  console.log(activeColor);
+});
 
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => { isDrawing = false; downloadSVG(); });
