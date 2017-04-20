@@ -1,0 +1,81 @@
+@import "bourbon"
+@import "normalize"
+
+*
+  margin: 0
+  box-sizing: border-box
+
+\:root
+  --purple: #5E4FDE
+  --blue: #0178FF
+  --green: #03DE51
+  --yellow: #FFCC02
+  --orange: #FF8F00
+  --red: #FF0F19
+  --gray: #8E8D92
+  --black: #000000
+
+canvas
+  height: 100vh
+  width: 100vw
+  background: white
+
+#colors
+  position: absolute
+  bottom: 0
+  right: 20px
+  &.open
+    .color
+      visibility: visible
+      transform: translateY(0)
+  .color
+    +size(40px)
+    border-radius: 50%
+    margin: 10px
+    visibility: hidden
+    transform: translateY(30px)
+    transition: 300ms transform ease-in-out, 300ms visibility ease-in-out
+    &.erase
+      background:
+        image: url(../img/eraser.svg)
+        repeat: repeat
+        position: center
+        size: cover
+    &.purple
+      background-color: var(--purple)
+    &.blue
+      background-color: var(--blue)
+    &.green
+      background-color: var(--green)
+    &.yellow
+      background-color: var(--yellow)
+    &.orange
+      background-color: var(--orange)
+    &.red
+      background-color: var(--red)
+    &.gray
+      background-color: var(--gray)
+    &.black
+      background-color: var(--black)
+    &.active
+      background-color: var(--black)
+      position: relative
+      visibility: visible
+      transform: translateY(0)
+      .border
+        +size(50px)
+        border-width: 2px
+        border-style: solid
+        border-radius: 50%
+        +position(absolute, -5px null null -5px)
+
+#download
+  position: absolute
+  top: 5px
+  right: 20px
+  +size(40px)
+  background:
+    image: url(../img/share.png)
+    position: center
+    size: contain
+    repeat: no-repeat
