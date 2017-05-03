@@ -18,17 +18,18 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 function pickColor() {
   const selectedColor = this.classList[1];
-  $('.active').classList.remove('erase');
-  $('.active').style.backgroundColor = cssVars.getPropertyValue(`--${selectedColor}`);
-  $('.active .border').style.borderColor = cssVars.getPropertyValue(`--${selectedColor}`);
-  ctx.strokeStyle = cssVars.getPropertyValue(`--${selectedColor}`);
-  console.log(selectedColor);
   if (selectedColor === 'erase') {
     ctx.strokeStyle = 'white';
     ctx.lineWidth = 20;
+    $('.active').classList.add('erase');
+    $('.active').style.backgroundColor = '';
+    $('.active .border').style.borderColor = cssVars.getPropertyValue('--gray');
   } else {
-    ctx.strokeStyle = cssVars.getPropertyValue(`--${selectedColor}`);
     ctx.lineWidth = 5;
+    $('.active').classList.remove('erase');
+    $('.active').style.backgroundColor = cssVars.getPropertyValue(`--${selectedColor}`);
+    $('.active .border').style.borderColor = cssVars.getPropertyValue(`--${selectedColor}`);
+    ctx.strokeStyle = cssVars.getPropertyValue(`--${selectedColor}`);
   }
 }
 
