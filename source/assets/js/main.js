@@ -58,7 +58,7 @@ function draw(e) {
 }
 
 function downloadSVG() {
-  const data = canvas.toDataURL('image/jpeg');
+  const data = canvas.toDataURL('image/svg+xml');
   $('#download').href = data;
 }
 
